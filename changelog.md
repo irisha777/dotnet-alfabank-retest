@@ -1,5 +1,22 @@
 # Changelog
 
+## [v0.6.5](https://github.com/devlooped/dotnet-retest/tree/v0.6.5) (2025-02-18)
+
+[Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.4...v0.6.5)
+
+:sparkles: Implemented enhancements:
+
+- Bring changes from trx new verbosity levels [\#64](https://github.com/devlooped/dotnet-retest/pull/64) (@kzu)
+
+:bug: Fixed bugs:
+
+- Fix broken verbose reporting of successful tests [\#70](https://github.com/devlooped/dotnet-retest/pull/70) (@kzu)
+
+:twisted_rightwards_arrows: Merged:
+
+- Showcase that we can run/render 1k+ tests [\#71](https://github.com/devlooped/dotnet-retest/pull/71) (@kzu)
+- Remove confusing and duplicate -v for version [\#67](https://github.com/devlooped/dotnet-retest/pull/67) (@kzu)
+
 ## [v0.6.4](https://github.com/devlooped/dotnet-retest/tree/v0.6.4) (2025-02-18)
 
 [Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.3...v0.6.4)

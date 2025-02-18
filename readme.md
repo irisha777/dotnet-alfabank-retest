@@ -20,7 +20,7 @@ and timing and outcome for each attempt:
 
 ![Demo](https://raw.githubusercontent.com/devlooped/dotnet-retest/main/assets/img/timings.png)
 
-Typical usage: `dotnet retest [OPTIONS] [-- [dotnet test options]]` (with optional `--attempts` which defaults to `5`):
+Typical usage: `dotnet retest [OPTIONS] [-- [dotnet test options]]` (with optional `--attempts` which defaults to `3`):
 
 ```yml
     - name: 🧪 test
@@ -58,6 +58,10 @@ OPTIONS:
 ```
 
 <!-- src/dotnet-retest/help.md -->
+
+> NOTE: rendering the passed tests requires `verbose` verbosity, since typically 
+> you'll just want to see the failed tests in the report, especially in projects with 
+> large number of tests.
 
 Install:
 

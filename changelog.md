@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.6.4](https://github.com/devlooped/dotnet-retest/tree/v0.6.4) (2025-02-18)
+
+[Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.3...v0.6.4)
+
+:bug: Fixed bugs:
+
+- Avoid extra noise in log for CI builds [\#58](https://github.com/devlooped/dotnet-retest/issues/58)
+- Column width inside Azure DevOps pipeline [\#54](https://github.com/devlooped/dotnet-retest/issues/54)
+- Retry attempts are not working anymore in 0.6.X [\#48](https://github.com/devlooped/dotnet-retest/issues/48)
+- Make retry logic more resilient to changes in xunit/vstest output [\#62](https://github.com/devlooped/dotnet-retest/pull/62) (@kzu)
+
+:twisted_rightwards_arrows: Merged:
+
+- Avoid noise in auto-update of progress [\#59](https://github.com/devlooped/dotnet-retest/pull/59) (@Tasteful)
+- Send output directly to System.Console to avoid line breaks [\#55](https://github.com/devlooped/dotnet-retest/pull/55) (@Tasteful)
+
 ## [v0.6.3](https://github.com/devlooped/dotnet-retest/tree/v0.6.3) (2024-09-02)
 
 [Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.2...v0.6.3)

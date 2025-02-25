@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.7.0](https://github.com/devlooped/dotnet-retest/tree/v0.7.0) (2025-02-25)
+
+[Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.5...v0.7.0)
+
+:bug: Fixed bugs:
+
+- Error on output when projects contain more than 1000 unit tests [\#47](https://github.com/devlooped/dotnet-retest/issues/47)
+
+:twisted_rightwards_arrows: Merged:
+
+- Include messages to standard error, this to make the log complete [\#57](https://github.com/devlooped/dotnet-retest/pull/57) (@Tasteful)
+
 ## [v0.6.5](https://github.com/devlooped/dotnet-retest/tree/v0.6.5) (2025-02-18)
 
 [Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.4...v0.6.5)

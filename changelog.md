@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.7.1](https://github.com/devlooped/dotnet-retest/tree/v0.7.1) (2025-03-02)
+
+[Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.7.0...v0.7.1)
+
+:bug: Fixed bugs:
+
+- Include standard error in the result to make it easier to find errors. [\#56](https://github.com/devlooped/dotnet-retest/issues/56)
+
 ## [v0.7.0](https://github.com/devlooped/dotnet-retest/tree/v0.7.0) (2025-02-25)
 
 [Full Changelog](https://github.com/devlooped/dotnet-retest/compare/v0.6.5...v0.7.0)

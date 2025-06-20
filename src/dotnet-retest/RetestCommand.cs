@@ -259,6 +259,8 @@ public partial class RetestCommand : AsyncCommand<RetestCommand.RetestSettings>
         }
 
         finalArgs.Insert(0, "test");
+        
+        System.Console.WriteLine("finalArgs: " + String.Join(" || ", finalArgs.ToArray()));
 
         var result = await Cli.Wrap(dotnet)
             .WithArguments(finalArgs)

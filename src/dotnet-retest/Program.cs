@@ -59,6 +59,8 @@ return exit;
 
 static async Task<string[]> CheckUpdates(string[] args)
 {
+    return [];
+
     if (args.Contains("-u") && !args.Contains("--unattended"))
         return [];
 

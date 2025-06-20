@@ -12,10 +12,13 @@
     <ToolCommandName>dotnet-retest</ToolCommandName>
     <PackAsTool>true</PackAsTool>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
-    <PackageTags>dotnet dotnet-tool</PackageTags>
+    <!--<PackageTags>dotnet dotnet-tool</PackageTags>-->
 
-    <BuildDate>$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</BuildDate>
-    <BuildRef>$(GITHUB_REF_NAME)</BuildRef>
+    <!--<BuildDate>$([System.DateTime]::Now.ToString("yyyy-MM-dd"))</BuildDate>-->
+    <!--<BuildRef>$(GITHUB_REF_NAME)</BuildRef>-->
+    
+    <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,7 +44,8 @@
 
   <Target Name="RenderHelp" AfterTargets="Build" Condition="$(DesignTimeBuild) != 'true'">
     <WriteLinesToFile Lines="```shell" Overwrite="true" Encoding="UTF-8" File="help.md" />
-    
+    <Exec Command="dotnet run --no-build --no-launch-profile -- --help &gt;&gt; help.md" StdOutEncoding="UTF-8"
+          EnvironmentVariables="NO_COLOR=true" />
     <WriteLinesToFile Lines="```" Overwrite="false" Encoding="UTF-8" File="help.md" />
   </Target>
 

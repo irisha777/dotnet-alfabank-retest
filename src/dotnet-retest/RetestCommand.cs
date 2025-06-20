@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 using CliWrap;
 using CliWrap.Buffered;
@@ -250,17 +251,65 @@ public partial class RetestCommand : AsyncCommand<RetestCommand.RetestSettings>
     async Task<BufferedCommandResult> RunTestsAsync(string dotnet, List<string> args, IEnumerable<string> failed, IProgress<string> progress)
     {
         var testArgs = string.Join(" ", args);
+        var argsBefore = new StringBuilder();
+        foreach (var item in args.ToArray())
+        {
+            argsBefore.AppendLine(item);
+        }
+        System.Console.WriteLine("argsBefore: ");
+        System.Console.WriteLine(argsBefore);
+        
+
+        //args.Insert(0, "--filter=FullyQualifiedName~testFilterParam");
+
+        var fidx = args.FindIndex(x => x.Contains("--filter="));
+        var oldFilter = "";
         var finalArgs = args;
         var filter = string.Join('|', failed.Select(failed => $"FullyQualifiedName~{failed}"));
-        if (filter.Length > 0)
+        //var filter = "|FullyQualifiedName~testFilterParam1";
+        try
         {
-            testArgs = $"--filter \"{filter}\" {testArgs}";
-            finalArgs.InsertRange(0, ["--filter", filter]);
+            if (filter.Length > 0)
+            {
+                if (fidx >= 0)
+                {
+                    oldFilter = args.Find(x => x.StartsWith("--filter="));
+                    args.Remove(oldFilter);
+                    oldFilter = oldFilter.Substring(oldFilter.IndexOf('=') + 1);
+                }
+                //testArgs = $"--filter \"{filter}\" {testArgs}";
+                if (!string.IsNullOrEmpty(oldFilter))
+                    filter += $"| {oldFilter}";
+                finalArgs.InsertRange(0, ["--filter", filter]);
+            }
+        }
+        catch (Exception ex)
+        {
+
+            throw;
         }
 
         finalArgs.Insert(0, "test");
-        
-        System.Console.WriteLine("finalArgs: " + String.Join(" || ", finalArgs.ToArray()));
+
+        //System.Console.WriteLine("finalArgs: " + String.Join(" || ", finalArgs.ToArray()));
+        var finalArgsStr = new StringBuilder();
+        foreach (var item in finalArgs.ToArray())
+        {
+            if (!item.Contains("|"))
+                finalArgsStr.AppendLine(item);
+            else
+            {
+                var filterArray = item.Split("|");
+                foreach (var item1 in filterArray.ToArray())
+                {
+                    finalArgsStr.AppendLine(item1);
+                }
+            }
+        }
+        System.Console.WriteLine("finalArgs: ");
+        System.Console.WriteLine(finalArgsStr);
+
+        //return null;
 
         var result = await Cli.Wrap(dotnet)
             .WithArguments(finalArgs)

@@ -9,7 +9,6 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Devlooped.Web;
-using Humanizer;
 using Spectre.Console;
 using Spectre.Console.Cli;
 using static Devlooped.Process;
@@ -275,7 +274,7 @@ public partial class TrxCommand : Command<TrxCommand.TrxSettings>
 
     static void MarkupSummary(Summary summary)
     {
-        Markup($":backhand_index_pointing_right: Run {summary.Total} tests in ~ {summary.Duration.Humanize()}");
+        Markup($":backhand_index_pointing_right: Run {summary.Total} tests in ~ {summary.Duration}");
 
         if (summary.Failed > 0)
             MarkupLine($" :cross_mark:");
